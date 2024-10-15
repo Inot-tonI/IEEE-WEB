@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    --bg-color: #002147;
+    --second-bg-color: #003A63;
+    --text-color: white;
+    --btn-color: #FFC72C;
+
+}
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: var(--second-bg-color);
+    backdrop-filter: blur(5px);
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* z-index: 5; */
+}
+.header-tag{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+.logo span{
+    text-shadow: 0 0 25px var(--main-color);
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 1rem;
+}
+.navbar a{
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+.navbar a:hover,
+.navbar a.active{
+    color: var(--main-color);
+    border-bottom: 3px solid var(--btn-color);
+}
+
+.landing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.landing-bg{
+    background-image: url('components/images/landing.HEIC');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    bottom: 0;
+    z-index: -1;
+}
+.landing img{
+    padding-top: 10%;
+    width: 60%
+}
+
+
+.banner-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    z-index: 1;
+}
+.banner-text h1{
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+.banner-text p{
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 0rem;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 5rem;
+}
+.btns a{
+    padding: 1rem 1rem;
+    width: 10rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: black;
+    background: var(--btn-color);
+    border-radius: 10px;
+    transition: 0.3s ease;
+    text-align: center;
+}

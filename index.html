@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HU IEEE</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Optional: Link to a favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
 </head>
 <body>
     <header class="header">
@@ -13,21 +15,23 @@
             <a href="#home" class="logo">HU <span>IEEE</span></a>
         </div>
         
-        <nav class="navbar">
-            <div>
-                <a href="index.html" class="active">Home</a>
-                <a href="About/about.html" >About</a>
-                <a href="">Projects</a>
-                <a href="" >Resources</a>
-                <a href="">HOPE</a> 
-                <a href="">Contact</a> 
-            </div>
-            
-           
-        </nav>   
-        
-        
+        <nav class="navbar" id="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="About/about.html">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Resources</a>
+            <a href="#">HOPE</a> 
+            <a href="#">Contact</a> 
+        </nav>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </header>
+    
     <section class="landing">
         <div class="landing-bg"></div>
         <img src="components/images/ieee-logo-white.png" alt="IEEE Logo" class="banner">
@@ -36,9 +40,20 @@
             <p>Advancing Technology For <br>Humanity</p>
         </div>
         <div class="btns">
-            <a href="" class="btn">Join Us</a>
+            <a href="https://form.jotform.com/242040582478154" class="btn">Join Us</a>
             <a href="./About/about.html" class="btn">Learn More</a>
         </div>
     </section>
+
+    <!-- JavaScript for Hamburger Menu Toggle -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navbar = document.getElementById('navbar');
+
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+    </script>
 </body>
 </html>

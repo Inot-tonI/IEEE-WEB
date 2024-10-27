@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <link rel="stylesheet" href="about.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" rel="stylesheet">
+    <!-- Optional: Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="HU IEEE - Advancing Technology For Humanity">
+    <meta name="keywords" content="HU, IEEE, Technology, Projects, Resources, HOPE, Contact">
+    <meta name="author" content="Your Name or Organization">
 </head>
 <body>
     <header class="header">
@@ -13,36 +22,406 @@
             <a href="#home" class="logo">HU <span>IEEE</span></a>
         </div>
         
-        <nav class="navbar">
-            <div>
-                <a href="../index.html" >Home</a>
-                <a href="about.html" class="active">About</a>
-                <a href="">Projects</a>
-                <a href="" >Resources</a>
-                <a href="">HOPE</a> 
-                <a href="">Contact</a> 
-            </div>
-            
-           
-        </nav>   
-        
-        
+        <nav class="navbar" id="navbar">
+            <a href="../index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Resources</a>
+            <a href="#">HOPE</a> 
+            <a href="#">Contact</a> 
+        </nav>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </header>
     <section class="second-header">
         <div class="second-header__text">
-            <img src="" alt="">
+            <!-- Removed empty img tag for better semantics -->
             <h1>About Us</h1>
-            
         </div>
         <div class="nav-links">
-        
             <a href="#mission" class="nav-link">Mission</a>
             <a href="#history" class="nav-link">History</a>
-            <a href="#team" class="nav-link">Meet The Board</a>
+            <a href="#eboard" class="nav-link">Meet The Board</a>
             <a href="#facts" class="nav-link">FAQ</a>
         </div>
-        
     </section>
-    
+    <section id="mission">
+        <div class="mission">
+            <div class="mission-bg"></div>
+            <div class="banner-text">
+                <h1>Mission</h1>
+                <p>To advance technology for the benefit of humanity by fostering technological innovation and excellence</p>
+            </div>
+            <div class="btns">
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+    <section id="history">
+        <div class="mission">
+            <div class="mission-bg"></div>
+            <div class="banner-text">
+                <h1>History</h1> <!-- Changed from "Mission" to "History" -->
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam ab, labore fugit aspernatur quidem quasi, rem necessitatibus dicta accusamus, ipsa ipsam iste voluptatem iusto possimus cumque laborum dolor fugiat natus?</p>
+            </div>
+            <div class="btns">
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+    <section class="eboard" id="eboard">
+        <h2>Meet The Board</h2>
+
+        <div class="card admin-lab">
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/brady.jpg" alt="President">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Brady Souma</h3>
+                    <p>Electrical Engineering</p>
+                    <p>President</p>
+                </div>
+                <div class="contact">
+                    <a href="mailto:brady@example.com"><i class='bx bx-envelope'></i></a>
+                    <a href="https://linkedin.com/in/bradysouma" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/vc.png" alt="Vice-President">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Bishesh Adhikari</h3>
+                    <p>Major</p>
+                    <p>Vice-President</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/sec.jpg" alt="Secretary">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Anu Soneye</h3>
+                    <p>Major</p>
+                    <p>Secretary</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/tres.jpg" alt="Treasurer">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Derrick Boston, III</h3>
+                    <p>Major</p>
+                    <p>Treasurer</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/tec-prog.jpg" alt="Technical Programs Chair">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Michael Agoha</h3>
+                    <p>Major</p>
+                    <p>Technical Programs Chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="card finance-lab">
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/fund-chair.jpg" alt="Fundraising Chair">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Timothy Ford</h3>
+                    <p>Major</p>
+                    <p>Fundraising Chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/tres.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Derrick Boston</h3>
+                    <p>Major</p>
+                    <p>Treasurer</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="card membership-lab">
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/mem-chair.png" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Alexia Dixon</h3>
+                    <p>Major</p>
+                    <p>Membership Chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/ment-chair.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Tehya Gains</h3>
+                    <p>Major</p>
+                    <p>Mentorship chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/fresh-lias.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Ebuka </h3>
+                    <p>Major</p>
+                    <p>Freshman Liaison</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/tech-ment.png" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Nathaniel Crosse</h3>
+                    <p>Major</p>
+                    <p>Technical Mentor</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+       </div>
+       <div class="card programs-lab">
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/prog-chair-1.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Bijay Poudel</h3>
+                    <p>Major</p>
+                    <p>Programs chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/prog-chair-2.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Naresh Rawal</h3>
+                    <p>Major</p>
+                    <p>Programs chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/com-serv-chair.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Jamoya Mondle</h3>
+                    <p>Computer Engineering</p>
+                    <p>Community Service chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/HOPE-chair.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Jeff Mofor Allo</h3>
+                    <p>Major</p>
+                    <p>HOPE Chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/conf-plan-chair.png" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Keon Augustine</h3>
+                    <p>Major</p>
+                    <p>Conference Planning Chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="card public-relations-lab">
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/public-rel-chair.png" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Clarice Yekeh</h3>
+                    <p>Major</p>
+                    <p>Public Relations Chair</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/graphic-des.png" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Isaac Davis</h3>
+                    <p>Major</p>
+                    <p>Graphic Designer</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/social-med-coord.png" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Ryan Haynes</h3>
+                    <p>Major</p>
+                    <p>Social Media Coordinator</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/social-med-coord-2.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Jean Joiles</h3>
+                    <p>Major</p>
+                    <p>Social Media Coordinator</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="card web-lab">
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/web-master-1.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Kwaku Asare</h3>
+                    <p>Computer Science</p>
+                    <p>Webmaster</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+            <div class="eboard-member">
+                <div class="eboard-member__img">
+                    <img src="../components/images/web-master-2.jpg" alt="Member 1">
+                </div>
+                <div class="eboard-member__info">
+                    <h3>Toni Dismuke</h3>
+                    <p>Computer Engineering</p>
+                    <p>Webmaster</p>
+                </div>
+                <div class="contact">
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                    <a href=""><i class='bx bxl-linkedin'></i></a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Include JavaScript for Hamburger Menu -->
+    <script src="about.js"></script>
 </body>
 </html>

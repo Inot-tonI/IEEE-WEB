@@ -1,4 +1,5 @@
-*{
+/* Base Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,96 +9,409 @@
     scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
 }
-:root{
-    --bg-color:#D9D9D9;
+
+:root {
+    --bg-color: #D9D9D9;
     --second-bg-color: #003A63;
     --text-color: white;
     --btn-color: #FFC72C;
-
+    --main-color: #FFC72C; /* Defined main color for consistency */
+    --hover-btn-color: #e6b800; /* Manually set a darker shade for hover */
 }
-body{
+
+body {
     background: var(--bg-color);
     color: var(--text-color);
-    overflow: hidden;
+    /* Removed overflow: hidden to allow scrolling */
 }
+
+/* Primary Header */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 0;
+    padding: 1rem 2rem; /* Increased horizontal padding for better spacing */
     background: var(--second-bg-color);
     backdrop-filter: blur(5px);
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between; /* Space out logo and nav */
     align-items: center;
-    /* z-index: 5; */
+    z-index: 1000; /* Ensure header stays on top */
 }
-.header-tag{
+
+.header-tag {
     display: flex;
     align-items: center;
 }
-.logo{
-    font-size: 1rem;
+
+.header__logo {
+    width: 50px; /* Adjust logo size */
+    margin-right: 0.5rem;
+}
+
+.logo {
+    font-size: 1.5rem; /* Increased font size for better visibility */
     color: var(--text-color);
     font-weight: 800;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-.logo:hover{
+.logo:hover {
     transform: scale(1.1);
 }
 
-.logo span{
+.logo span {
     text-shadow: 0 0 25px var(--main-color);
 }
-.navbar{
+
+.navbar {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    padding-right: 1rem;
 }
-.navbar a{
+
+.navbar a {
     font-size: 1rem;
     color: var(--text-color);
-    margin-left: 4rem;
+    margin-left: 2rem; /* Reduced margin for better spacing on smaller screens */
     font-weight: 500;
-    transition: 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 3px solid transparent;
 }
+
 .navbar a:hover,
-.navbar a.active{
+.navbar a.active {
     color: var(--main-color);
     border-bottom: 3px solid var(--btn-color);
 }
 
-.second-header{
-    position: fixed; /* Make the second header fixed */
-    top: calc(1rem + 56px); /* Adjust this value based on the height of the first header */
+/* Second Header (Sub-navigation) */
+.second-header {
+    position: fixed;               /* Keep the second header fixed */
+    top: calc(1rem + 56px);        /* Adjust based on the first header’s height */
     left: 0;
     width: 100%;
-    padding: 1rem 0;
-    background: whitesmoke; /* Optional, if you want to match the first header's style */
-    backdrop-filter: blur(5px); /* Optional, to match the blur effect */
-    z-index: 4;
+    height: fit-content;           /* Allow height to adjust to content */
+    padding: 1rem 2rem;            /* Adjust the padding for spacing */
+    background: whitesmoke;        /* Optional, for matching styles */
+    backdrop-filter: blur(5px);    /* Optional, for blur effect */
+    z-index: 999;                   /* Ensure the header stays above other elements but below the primary header */
+    display: flex;                 /* Ensure flexbox layout for children */
+    justify-content: space-between; /* Space between text and nav links */
+    align-items: center;           /* Vertically center the content */
 }
 
-.nav-links{
+.nav-links {
+    display: flex;
+    justify-content: flex-end;     /* Align nav links to the right */
+    align-items: center;           /* Vertically center the nav links */
+    padding-right: 1rem;           /* Add padding to the right */
+}
+
+.nav-links a {
+    font-size: 1rem;
+    color: var(--second-bg-color); /* Use the second background color for links */
+    margin-left: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--second-bg-color); /* Ensure color stays consistent on hover/active */
+    border-bottom: 3px solid var(--btn-color); /* Border-bottom effect on hover */
+}
+
+/* Second Header Text */
+.second-header__text {
+    display: flex;
+    align-items: center; /* Vertically center the text */
+}
+
+.second-header__text h1 {
+    font-size: 1.5rem;             /* Header font size */
+    color: var(--second-bg-color); /* Use the second background color */
+    font-weight: 800;
+    margin-left: 1rem;
+}
+
+/* Mission and History Sections */
+section#mission,
+section#history {
+    padding: 2rem 0;
+    min-height: 100vh; /* Ensure it takes at least the full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.nav-links a{
-    font-size: 1rem;
-    color: var(--second-bg-color);
-    margin-left: 4rem;
-    font-weight: 500;
-    transition: 0.3s ease;
-    border-bottom: 3px solid transparent;
+
+.mission {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 80%;                     /* Set the card width */
+    max-width: 800px;              /* Optional: set a max-width for responsiveness */
+    min-height: 80vh;              /* Allow height to adjust based on content */
+    margin: 10rem auto;            /* Adjusted space above and below */
+    border-radius: 20px;           /* Rounded corners for the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
+    overflow: hidden;              /* Keep content inside the rounded corners */
+    padding: 2rem;                 /* Add padding inside the card */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
 }
-.nav-links a:hover,
-.nav-links a.active{
-    color: var(--second-bg-color);
-    border-bottom: 3px solid var(--btn-color);
+
+.mission-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../components/images/mission-bg.HEIC') no-repeat center center;
+    background-size: cover;
+    filter: blur(3px);               /* Optional: Add blur to the background */
+    z-index: -1;                     /* Ensure the background stays behind the content */
+    border-radius: 20px;             /* Make sure the background respects the rounded edges */
+}
+
+.banner-text {
+    position: relative;
+    z-index: 1;                      /* Ensure text stays above the background */
+    text-align: center;
+    color: var(--second-bg-color);   /* Set text color */
+}
+
+.banner-text p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    color: var(--text-color);
+}
+
+.banner-text h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #04AEEE;
+}
+
+h1, p {
+    margin-bottom: 1rem;             /* Add spacing between elements inside the card */
+}
+
+/* Buttons */
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 1rem; /* Added gap for spacing between buttons */
+}
+
+.btn {
+    margin-top: 20px;                /* Add space above the button */
+    padding: 0.75rem 1.5rem;         /* Button padding */
+    background-color: var(--btn-color); /* Use your button color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--hover-btn-color); /* Use a predefined darker shade */
+}
+
+/* Container for all eboard members */
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5; /* Light background for contrast */
+}
+
+/* Individual eboard member card */
+.eboard-member {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.eboard-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Image container */
+.eboard-member__img {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.eboard-member__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Zoom effect on image hover */
+.eboard-member:hover .eboard-member__img img {
+    transform: scale(1.05);
+}
+
+/* Member information */
+.eboard-member__info {
+    padding: 15px;
+}
+
+.eboard-member__info h3 {
+    margin: 10px 0 5px;
+    font-size: 1.5em;
+    color: #333333;
+}
+
+.eboard-member__info p {
+    margin: 5px 0;
+    color: #777777;
+    font-size: 0.95em;
+}
+
+/* Contact icons */
+.contact {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    margin-top: auto; /* Pushes contact to the bottom */
+}
+
+.contact a {
+    color: #555555;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.contact a:hover {
+    color: #1e90ff; /* Change color on hover */
+}
+
+/* Responsive Design */
+
+/* Tablets (1024px and below) */
+@media (max-width: 1024px) {
+    .navbar a {
+        margin-left: 2rem;
+        font-size: 0.95rem;
+    }
+
+    .btns {
+        gap: 1.2rem;
+    }
+}
+
+/* Large Mobile Devices (768px and below) */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    .navbar {
+        display: none; /* Hide navbar initially */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        right: 0;
+        background: var(--second-bg-color);
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    /* Adjust second-header positioning */
+    .second-header {
+        top: 120px; /* Adjust based on both headers’ heights */
+    }
+
+    /* Adjust mission section margin for smaller screens */
+    .mission {
+        margin: 8rem auto;
+    }
+}
+
+/* Small Mobile Devices (600px and below) */
+@media (max-width: 600px) {
+    .btns {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn {
+        width: 80%;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra Small Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+    .eboard-member {
+        width: 100%;
+    }
+
+    .banner-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .banner-text p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Hamburger Animation (Transforms into 'X' when active) */
+.hamburger.toggle div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.toggle div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggle div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }

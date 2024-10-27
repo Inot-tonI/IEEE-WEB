@@ -67,6 +67,7 @@ header {
 .navbar{
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
 .navbar a{

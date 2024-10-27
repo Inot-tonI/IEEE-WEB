@@ -69,6 +69,7 @@ header {
 .navbar {
     display: flex;
     align-items: center;
+    margin-left: auto; /* Push navbar to the right */
 }
 
 .navbar a {
@@ -137,93 +138,92 @@ header {
     margin-left: 1rem;
 }
 
-/* Mission and History Sections */
-section#mission,
-section#history {
-    padding: 2rem 0;
-    min-height: 100vh; /* Ensure it takes at least the full viewport height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* Style for the mission card layout */
 .mission {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     position: relative;
-    width: 80%;                     /* Set the card width */
-    max-width: 800px;              /* Optional: set a max-width for responsiveness */
-    min-height: 80vh;              /* Allow height to adjust based on content */
-    margin: 10rem auto;            /* Adjusted space above and below */
-    border-radius: 20px;           /* Rounded corners for the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
-    overflow: hidden;              /* Keep content inside the rounded corners */
-    padding: 2rem;                 /* Add padding inside the card */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+    width: 70%;
+    margin: auto;
+    padding: 2em;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 15px;
+    color: whitesmoke;
+    backdrop-filter: blur(5px); /* Slight blur to match the background */
 }
 
+/* Style for centering each card in the viewport */
+#mission, #history {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    padding: 5vh 0;
+    margin-top: 100px;
+}
+
+/* Blurred background image */
 .mission-bg {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('../components/images/mission-bg.HEIC') no-repeat center center;
-    background-size: cover;
-    filter: blur(3px);               /* Optional: Add blur to the background */
-    z-index: -1;                     /* Ensure the background stays behind the content */
-    border-radius: 20px;             /* Make sure the background respects the rounded edges */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../components/images/mission-bg.HEIC') center/cover no-repeat;
+    filter: blur(5px);
+    z-index: -1;
 }
 
-.banner-text {
-    position: relative;
-    z-index: 1;                      /* Ensure text stays above the background */
-    text-align: center;
-    color: var(--second-bg-color);   /* Set text color */
+.history-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Dark overlay */
+    url('../components/images/hu-yard-img.jpg') center/cover no-repeat;
+    filter: blur(10px);
+    
+    z-index: -1;
+}
+
+/* Banner text style */
+.banner-text h1 {
+    font-size: 4em;
+    margin: 1em 0;
+    color: var( --second-bg-color);
+    
+}
+.banner-text h2 {
+    font-size: 2em;
+    color: #04AEEE;
+    margin: 0.5em 0;
 }
 
 .banner-text p {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-top: 1rem;
-    color: var(--text-color);
+    font-size: 1.1em;
+    margin: 0.5em 0;
 }
 
-.banner-text h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #04AEEE;
-}
-
-h1, p {
-    margin-bottom: 1rem;             /* Add spacing between elements inside the card */
-}
-
-/* Buttons */
-.btns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    gap: 1rem; /* Added gap for spacing between buttons */
-}
-
+/* Button styling */
 .btn {
-    margin-top: 20px;                /* Add space above the button */
-    padding: 0.75rem 1.5rem;         /* Button padding */
-    background-color: var(--btn-color); /* Use your button color */
-    color: white;
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    margin-top: 1em;
+    color:whitesmoke;
+    background-color: var(--btn-color);
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: var(--hover-btn-color); /* Use a predefined darker shade */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
+section.eboard {
+    padding: 2rem 0;
+    background-color: #f5f5f5;
+}
 /* Container for all eboard members */
 .card {
     display: flex;
@@ -232,6 +232,17 @@ h1, p {
     justify-content: center;
     padding: 20px;
     background-color: #f5f5f5; /* Light background for contrast */
+}
+.eboard {
+    margin-top: auto; /* Pushes eboard section to the bottom */
+    padding: 2rem 0;
+    min-height: 100vh; /* Ensure it takes at least the full viewport height */
+}
+.eboard h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--second-bg-color);
+    font-size: 3rem;
 }
 
 /* Individual eboard member card */
@@ -306,6 +317,56 @@ h1, p {
 .contact a:hover {
     color: #1e90ff; /* Change color on hover */
 }
+
+/* FAQ Section Styles */
+.faq-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--second-bg-color);
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.faq-answer {
+    display: none; /* Initially hidden */
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.faq-question.active + .faq-answer {
+    display: block; /* Show answer when question is active */
+}
+
 
 /* Responsive Design */
 

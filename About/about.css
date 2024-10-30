@@ -501,6 +501,51 @@ section.eboard {
     margin: 0 10px; /* Space between icons */
 }
 
+/* Banner text style */
+.banner-text h1 {
+    font-size: 2rem;
+    margin: 1em 0;
+    color: var(--second-bg-color);
+}
+
+.banner-text h2 {
+    font-size: 1.5rem;
+    color: #04AEEE;
+    margin: 0.5em 0;
+}
+
+.banner-text p {
+    font-size: 1.1rem;
+    margin: 0.5em 0;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    margin-top: 1em;
+    color: var(--text-color);
+    background-color: var(--btn-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* GroupMe Icon Styling */
+.groupme-icon {
+    width: 50px; /* Default width */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.groupme-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
 /* Responsive Design */
 
 /* Tablets (1024px and below) */
@@ -511,7 +556,8 @@ section.eboard {
     }
 
     .btns {
-        gap: 1.2rem;
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
@@ -626,7 +672,8 @@ section.eboard {
     }
 
     .btn {
-        width: 80%;
+        padding: 0.5em 1em;
+        font-size: 0.9rem;  
     }
 
     .logo {
@@ -676,51 +723,6 @@ section.eboard {
     max-width: 800px;
 }
 
-/* Banner text style */
-.banner-text h1 {
-    font-size: 2rem;
-    margin: 1em 0;
-    color: var(--second-bg-color);
-}
-
-.banner-text h2 {
-    font-size: 1.5rem;
-    color: #04AEEE;
-    margin: 0.5em 0;
-}
-
-.banner-text p {
-    font-size: 1.1rem;
-    margin: 0.5em 0;
-}
-
-/* Button styling */
-.btn {
-    display: inline-block;
-    padding: 0.8em 1.5em;
-    margin-top: 1em;
-    color: var(--text-color);
-    background-color: var(--btn-color);
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* GroupMe Icon Styling */
-.groupme-icon {
-    width: 50px; /* Default width */
-    height: auto; /* Maintain aspect ratio */
-    transition: transform 0.3s ease; /* Smooth hover effect */
-}
-
-/* Hover Effect */
-.groupme-icon:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

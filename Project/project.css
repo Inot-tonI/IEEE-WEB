@@ -1,0 +1,390 @@
+/* Root Variables */
+:root {
+    --bg-color: #D9D9D9;
+    --second-bg-color: #003A63;
+    --text-color: white;
+    --btn-color: #FFC72C;
+    --main-color: #FFC72C;
+    --hover-btn-color: #e6b800;
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Header Container */
+.header-container {
+    width: 100%;
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Primary Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--second-bg-color);
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+/* Header Tag (Logo and Title) */
+.header-tag {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    width: 50px;
+    margin-right: 0.5rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--btn-color);
+    border-bottom: 3px solid var(--btn-color);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Menu Animation */
+.hamburger.toggle div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.toggle div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggle div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Second Header */
+.second-header {
+    width: 100%;
+    background: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative; /* Allows it to flow naturally */
+}
+
+.second-header__text h1 {
+    font-size: 1.5rem;
+    color: var(--second-bg-color);
+    font-weight: 800;
+    margin-left: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 1rem;
+    color: var(--second-bg-color);
+    margin-left: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--btn-color);
+    border-bottom: 3px solid var(--btn-color);
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    margin-top: 0; /* JavaScript will set the correct margin */
+}
+
+/* Shared Styles for Projects and Events Sections */
+.projects .project,
+.events .communityservice,
+.events .nontechnicalevents .event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    min-height: 100vh; /* Occupy full viewport height */
+    padding: 2rem;
+    background-color: #ffffff; /* White background for contrast */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+/* Alternate background colors for visual separation */
+.projects .project:nth-child(even),
+.events .communityservice:nth-child(even),
+.events .nontechnicalevents .event:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+/* Section Titles */
+.project h2,
+.communityservice h2,
+.nontechnicalevents h2 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Section Images */
+.project img,
+.communityservice img,
+.nontechnicalevents .event img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Details Heading */
+.project h3,
+.communityservice h3,
+.nontechnicalevents .event h3 {
+    font-size: 1.5rem;
+    color: #555555;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Details Text */
+.project .details,
+.communityservice .details,
+.nontechnicalevents .event .details {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.project .details p,
+.communityservice .details p,
+.nontechnicalevents .event .details p {
+    margin: 10px 0;
+    color: #777777;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Logos within Details */
+.project .details span,
+.communityservice .details span,
+.nontechnicalevents .event .details span {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.project .details span img,
+.communityservice .details span img,
+.nontechnicalevents .event .details span img {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+}
+
+/* Event Information */
+.event-info {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.event-info p {
+    font-size: 1rem;
+    color: #555555;
+}
+
+/* Start Date Section */
+.project .startdate,
+.communityservice .startdate,
+.nontechnicalevents .event .startdate {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
+}
+
+.project .startdate h4,
+.communityservice .startdate h4,
+.nontechnicalevents .event .startdate h4 {
+    font-size: 1.2rem;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+.project .startdate p,
+.communityservice .startdate p,
+.nontechnicalevents .event .startdate p {
+    font-size: 1rem;
+    color: #555555;
+}
+
+/* Sign Up Button */
+.signup {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #1e90ff; /* Button background color */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.signup:hover {
+    background-color: #0d75d8; /* Darker shade on hover */
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Header Container */
+    .header-container {
+        position: relative; /* Allow headers to flow naturally */
+    }
+
+    /* Header */
+    .header {
+        position: relative; /* Remove fixed positioning */
+        padding: 1rem;
+    }
+
+    /* Navbar */
+    .navbar {
+        display: none; /* Hide navbar by default on mobile */
+        flex-direction: column;
+        background: var(--second-bg-color);
+        width: 100%;
+        text-align: center;
+        position: relative; /* Allow it to push down the second header */
+    }
+
+    .navbar a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: block; /* Show hamburger menu */
+    }
+
+    /* Second Header */
+    .second-header {
+        position: relative;
+    }
+
+    /* Content Wrapper */
+    .content-wrapper {
+        margin-top: 0; /* Headers are now in the flow */
+    }
+
+    /* Shared Section Adjustments */
+    .projects .project,
+    .events .communityservice,
+    .events .nontechnicalevents .event {
+        padding: 1.5rem;
+    }
+
+    .project h2,
+    .communityservice h2,
+    .nontechnicalevents h2 {
+        font-size: 2rem;
+    }
+
+    .project h3,
+    .communityservice h3,
+    .nontechnicalevents .event h3 {
+        font-size: 1.3rem;
+    }
+
+    .project .details p,
+    .communityservice .details p,
+    .nontechnicalevents .event .details p,
+    .project .startdate p,
+    .communityservice .startdate p,
+    .nontechnicalevents .event .startdate p {
+        font-size: 1rem;
+    }
+
+    .signup {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Adjust logo sizes in Community Service section */
+    .communityservice .details span img,
+    .nontechnicalevents .event .details span img {
+        width: 80px; /* Smaller size for mobile */
+    }
+}

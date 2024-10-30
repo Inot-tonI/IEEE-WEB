@@ -1,5 +1,3 @@
-// About/about.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const navbar = document.getElementById('navbar');
@@ -17,13 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event listener for hamburger menu click
     hamburger.addEventListener('click', toggleNavbar);
-
-    // Event listener for hamburger menu keypress (Enter key)
-    hamburger.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            toggleNavbar();
-        }
-    });
 
     // Event listeners for navigation links click
     navLinks.forEach(link => {
@@ -46,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observerOptions = {
         root: null, // viewport
-        rootMargin: '-150px 0px 0px 0px', // Adjust based on your fixed headers' combined height
+        rootMargin: '-140px 0px 0px 0px', // Adjust based on your fixed headers' combined height
         threshold: 0.6 // 60% of the section is visible
     };
 
@@ -55,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 // Get the section's ID
                 const sectionId = entry.target.getAttribute('id');
-                console.log(`Section in view: ${sectionId}`); // Debugging log
 
                 // Remove 'active' class from all nav-links
                 navLinks.forEach(link => link.classList.remove('active'));
@@ -64,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
-                    console.log(`Active link set to: ${activeLink.textContent}`); // Debugging log
                 }
             }
         });
@@ -74,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => observer.observe(section));
 });
+
 
 document.querySelectorAll('.faq-question').forEach(item => {
     item.addEventListener('click', () => {

@@ -15,43 +15,49 @@
     --second-bg-color: #003A63;
     --text-color: white;
     --btn-color: #FFC72C;
-    --main-color: #FFC72C; /* Defined main color for consistency */
-    --hover-btn-color: #e6b800; /* Manually set a darker shade for hover */
+    --main-color: #FFC72C;
+    --hover-btn-color: #e6b800;
 }
 
 body {
     background: var(--bg-color);
     color: var(--text-color);
-    /* Removed overflow: hidden to allow scrolling */
 }
-
-/* Primary Header */
-header {
+/* Header Container */
+.header-container {
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 1rem 2rem; /* Increased horizontal padding for better spacing */
-    background: var(--second-bg-color);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: space-between; /* Space out logo and nav */
-    align-items: center;
-    z-index: 1000; /* Ensure header stays on top */
+    z-index: 1000;
 }
 
+/* Primary Header */
+.header {
+    width: 100%;
+    background: var(--second-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+/* Header Tag (Logo and Title) */
 .header-tag {
     display: flex;
     align-items: center;
 }
 
 .header__logo {
-    width: 50px; /* Adjust logo size */
+    width: 50px;
     margin-right: 0.5rem;
+}
+.header-tag img {
+    width: 0px;
 }
 
 .logo {
-    font-size: 1.5rem; /* Increased font size for better visibility */
+    font-size: 1.5rem;
     color: var(--text-color);
     font-weight: 800;
     cursor: pointer;
@@ -66,16 +72,16 @@ header {
     text-shadow: 0 0 25px var(--main-color);
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Push navbar to the right */
 }
 
 .navbar a {
     font-size: 1rem;
     color: var(--text-color);
-    margin-left: 2rem; /* Reduced margin for better spacing on smaller screens */
+    margin-left: 2rem;
     font-weight: 500;
     transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 3px solid transparent;
@@ -87,32 +93,46 @@ header {
     border-bottom: 3px solid var(--btn-color);
 }
 
-/* Second Header (Sub-navigation) */
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Second Header */
 .second-header {
-    position: fixed;               /* Keep the second header fixed */
-    top: calc(1rem + 56px);        /* Adjust based on the first header’s height */
-    left: 0;
     width: 100%;
-    height: fit-content;           /* Allow height to adjust to content */
-    padding: 1rem 2rem;            /* Adjust the padding for spacing */
-    background: whitesmoke;        /* Optional, for matching styles */
-    backdrop-filter: blur(5px);    /* Optional, for blur effect */
-    z-index: 999;                   /* Ensure the header stays above other elements but below the primary header */
-    display: flex;                 /* Ensure flexbox layout for children */
-    justify-content: space-between; /* Space between text and nav links */
-    align-items: center;           /* Vertically center the content */
+    background: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative; /* Allows it to flow naturally */
+}
+
+.second-header__text h1 {
+    font-size: 1.5rem;
+    color: var(--second-bg-color);
+    font-weight: 800;
+    margin-left: 1rem;
 }
 
 .nav-links {
     display: flex;
-    justify-content: flex-end;     /* Align nav links to the right */
-    align-items: center;           /* Vertically center the nav links */
-    padding-right: 1rem;           /* Add padding to the right */
+    align-items: center;
 }
 
 .nav-links a {
     font-size: 1rem;
-    color: var(--second-bg-color); /* Use the second background color for links */
+    color: var(--second-bg-color);
     margin-left: 1rem;
     font-weight: 500;
     transition: color 0.3s ease, border-bottom 0.3s ease;
@@ -121,24 +141,67 @@ header {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--second-bg-color); /* Ensure color stays consistent on hover/active */
-    border-bottom: 3px solid var(--btn-color); /* Border-bottom effect on hover */
+    color: var(--btn-color);
+    border-bottom: 3px solid var(--btn-color);
 }
 
-/* Second Header Text */
-.second-header__text {
-    display: flex;
-    align-items: center; /* Vertically center the text */
+/* Content Wrapper */
+.content-wrapper {
+    margin-top: calc(70px + 70px); /* Adjust based on header heights */
 }
 
-.second-header__text h1 {
-    font-size: 1.5rem;             /* Header font size */
-    color: var(--second-bg-color); /* Use the second background color */
-    font-weight: 800;
-    margin-left: 1rem;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Header Container */
+    .header-container {
+        position: relative; /* Allow headers to flow naturally */
+    }
+
+    /* Header */
+    .header {
+        position: relative;
+        padding: 1rem;
+    }
+
+    /* Navbar */
+    .navbar {
+        display: none;
+        flex-direction: column;
+        background: var(--second-bg-color);
+        width: 100%;
+        text-align: center;
+        position: relative; /* Changed from absolute */
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: block; /* Show hamburger menu */
+    }
+
+    /* Second Header */
+    .second-header {
+        position: relative;
+    }
+
+    /* Content Wrapper */
+    .content-wrapper {
+        margin-top: 0; /* Headers are now in the flow */
+    }
 }
+
 
 /* Style for the mission card layout */
+section.active {
+    border-left: 5px solid var(--btn-color);
+    background-color: rgba(255, 199, 44, 0.1);
+}
+.content-wrapper {
+    margin-top: 140px; /* Adjusted to account for both headers */
+}
 .mission {
     position: relative;
     width: 70%;
@@ -149,6 +212,9 @@ header {
     border-radius: 15px;
     color: whitesmoke;
     backdrop-filter: blur(5px); /* Slight blur to match the background */
+}
+#mission {
+    margin-top: 20px;
 }
 
 /* Style for centering each card in the viewport */
@@ -382,6 +448,7 @@ section.eboard {
     }
 }
 
+
 /* Large Mobile Devices (768px and below) */
 @media (max-width: 768px) {
     header {
@@ -433,6 +500,7 @@ section.eboard {
     }
 }
 
+
 /* Small Mobile Devices (600px and below) */
 @media (max-width: 600px) {
     .btns {
@@ -463,6 +531,7 @@ section.eboard {
         font-size: 0.8rem;
     }
 }
+
 
 /* Hamburger Animation (Transforms into 'X' when active) */
 .hamburger.toggle div:nth-child(1) {

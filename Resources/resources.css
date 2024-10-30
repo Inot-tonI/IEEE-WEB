@@ -1,0 +1,270 @@
+/* Root Variables */
+:root {
+    --bg-color: #D9D9D9;
+    --second-bg-color: #003A63;
+    --text-color: white;
+    --btn-color: #FFC72C;
+    --main-color: #FFC72C;
+    --hover-btn-color: #e6b800;
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Header Container */
+.header-container {
+    width: 100%;
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Primary Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--second-bg-color);
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+/* Header Tag (Logo and Title) */
+.header-tag {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    width: 50px;
+    margin-right: 0.5rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--btn-color);
+    border-bottom: 3px solid var(--btn-color);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Menu Animation */
+.hamburger.toggle div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.toggle div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggle div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Second Header */
+.second-header {
+    width: 100%;
+    background: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative; /* Allows it to flow naturally */
+}
+
+.second-header__text h1 {
+    font-size: 1.5rem;
+    color: var(--second-bg-color);
+    font-weight: 800;
+    margin-left: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 1rem;
+    color: var(--second-bg-color);
+    margin-left: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--btn-color);
+    border-bottom: 3px solid var(--btn-color);
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    margin-top: 0; /* JavaScript will set the correct margin */
+}
+.construction-container {
+    flex: 1; /* Take up remaining vertical space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center text horizontally */
+    padding: 2rem;
+    height: 100vh; /* Full viewport height */
+}
+
+.construction-title {
+    font-size: 4rem; /* Large font size */
+    color: var(--second-bg-color);
+    margin-bottom: 1rem;
+}
+
+.construction-image {
+    width: 150px; /* Increase image size */
+    height: 150px;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite; /* Optional: Add a bounce animation */
+}
+
+.construction-message {
+    font-size: 1.5rem; /* Larger font size */
+    color: #333333;
+}
+
+/* Optional Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    } 
+    40% {
+        transform: translateY(-20px);
+    } 
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        position: fixed; /* Keep the header fixed on small screens */
+    }
+
+    /* Adjust the top position if necessary to account for multiple headers */
+    .header-container {
+        top: 0;
+        left: 0;
+    }
+
+    /* Ensure the header has a higher z-index to stay above other elements */
+    .header-container {
+        z-index: 1000;
+    }
+    /* Navbar */
+    .navbar {
+        display: none; /* Hide navbar by default on mobile */
+        flex-direction: column;
+        background: var(--second-bg-color);
+        width: 100%;
+        text-align: center;
+        position: relative; /* Allow it to push down the second header */
+    }
+
+    .navbar a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: block; /* Show hamburger menu */
+    }
+
+    /* Second Header */
+    .second-header {
+        position: relative;
+    }
+
+    /* Content Wrapper */
+    .content-wrapper {
+        margin-top: 0; /* Headers are now in the flow */
+    }
+    .construction-container {
+        padding: 1rem;
+    }
+
+    .construction-title {
+        font-size: 3rem;
+    }
+
+    .construction-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .construction-message {
+        font-size: 1.2rem;
+    }
+}
+   
+  
+

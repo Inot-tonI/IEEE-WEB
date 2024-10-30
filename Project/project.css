@@ -304,17 +304,20 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Header Container */
     .header-container {
-        position: relative; /* Allow headers to flow naturally */
+        position: fixed; /* Keep the header fixed on small screens */
     }
 
-    /* Header */
-    .header {
-        position: relative; /* Remove fixed positioning */
-        padding: 1rem;
+    /* Adjust the top position if necessary to account for multiple headers */
+    .header-container {
+        top: 0;
+        left: 0;
     }
 
+    /* Ensure the header has a higher z-index to stay above other elements */
+    .header-container {
+        z-index: 1000;
+    }
     /* Navbar */
     .navbar {
         display: none; /* Hide navbar by default on mobile */

@@ -110,6 +110,19 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Hamburger Menu Animation */
+.hamburger.toggle div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.toggle div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggle div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
 /* Second Header */
 .second-header {
     width: 100%;
@@ -457,6 +470,36 @@ section.eboard {
 .faq-question.active + .faq-answer {
     display: block; /* Show answer when question is active */
 }
+/* Social Icon Styling */
+.social-icon {
+    width: 30px; /* Desired width */
+    height: 30px; /* Desired height */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    display: inline-block; /* Ensures proper alignment */
+}
+
+/* Specific Styles for <i> Tags */
+.social-icon.bxl-instagram {
+    font-size: 30px; /* Matches the <img> height */
+    color: #E1306C; /* Instagram's brand color */
+}
+
+/* Ensuring <img> Fills the Defined Size */
+.social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Maintains aspect ratio */
+}
+
+/* Hover Effect for Both Icons */
+.social-link:hover .social-icon {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Optional: Aligning Icons Horizontally with Spacing */
+.faq-answer a.social-link {
+    margin: 0 10px; /* Space between icons */
+}
 
 /* Responsive Design */
 
@@ -503,11 +546,12 @@ section.eboard {
         background: var(--second-bg-color);
         width: 100%;
         text-align: center;
-        position: fixed;
+        position: absolute; /* Changed from fixed to absolute */
         top: 120px; /* Below both headers */
         left: 0;
-        height: calc(100% - 120px);
-        overflow-y: auto;
+        /* Removed height: calc(100% - 120px); to prevent full-page coverage */
+        padding: 1rem 0; /* Add padding for better spacing */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional shadow for separation */
     }
 
     .navbar a {
@@ -618,17 +662,7 @@ section.eboard {
 }
 
 /* Hamburger Animation (Transforms into 'X' when active) */
-.hamburger.toggle div:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger.toggle div:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.toggle div:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
+/* Already defined above */
 
 /* Style for the mission and history card layout */
 .mission,
@@ -674,4 +708,29 @@ section.eboard {
 
 .btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* GroupMe Icon Styling */
+.groupme-icon {
+    width: 50px; /* Default width */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.groupme-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .groupme-icon {
+        width: 40px; /* Smaller size on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .groupme-icon {
+        width: 30px; /* Even smaller size on mobile */
+    }
 }

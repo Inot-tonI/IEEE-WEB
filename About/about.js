@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => observer.observe(section));
 });
 
-
+// FAQ Toggle functionality
 document.querySelectorAll('.faq-question').forEach(item => {
     item.addEventListener('click', () => {
         item.classList.toggle('active');

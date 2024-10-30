@@ -1,15 +1,4 @@
-/* Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
-}
-
+/* Root Variables */
 :root {
     --bg-color: #D9D9D9;
     --second-bg-color: #003A63;
@@ -19,14 +8,26 @@
     --hover-btn-color: #e6b800;
 }
 
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Body Styling */
 body {
     background: var(--bg-color);
     color: var(--text-color);
 }
+
 /* Header Container */
 .header-container {
     width: 100%;
-    position: fixed;
+    position: fixed; /* Keep fixed on all screens */
     top: 0;
     left: 0;
     z-index: 1000;
@@ -40,6 +41,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
+    height: 70px; /* Fixed height for consistency */
 }
 
 /* Header Tag (Logo and Title) */
@@ -52,8 +54,9 @@ body {
     width: 50px;
     margin-right: 0.5rem;
 }
+
 .header-tag img {
-    width: 0px;
+    width: 50px; /* Ensure logo is visible */
 }
 
 .logo {
@@ -89,7 +92,7 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
-    color: var(--main-color);
+    color: var(--btn-color);
     border-bottom: 3px solid var(--btn-color);
 }
 
@@ -114,8 +117,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    position: relative; /* Allows it to flow naturally */
+    padding: 0.5rem 2rem;
+    position: fixed; /* Keep fixed */
+    top: 70px; /* Position below primary header */
+    left: 0;
+    z-index: 999; /* Below primary header */
+    height: 70px; /* Fixed height for consistency */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional shadow for separation */
 }
 
 .second-header__text h1 {
@@ -147,149 +155,164 @@ body {
 
 /* Content Wrapper */
 .content-wrapper {
-    margin-top: calc(70px + 70px); /* Adjust based on header heights */
+    margin-top: 140px; /* Sum of .header and .second-header heights */
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    /* Header Container */
-    .header-container {
-        position: relative; /* Allow headers to flow naturally */
-    }
-
-    /* Header */
-    .header {
-        position: relative;
-        padding: 1rem;
-    }
-
-    /* Navbar */
-    .navbar {
-        display: none;
-        flex-direction: column;
-        background: var(--second-bg-color);
-        width: 100%;
-        text-align: center;
-        position: relative; /* Changed from absolute */
-    }
-
-    .navbar.active {
-        display: flex;
-    }
-
-    /* Hamburger Menu */
-    .hamburger {
-        display: block; /* Show hamburger menu */
-    }
-
-    /* Second Header */
-    .second-header {
-        position: relative;
-    }
-
-    /* Content Wrapper */
-    .content-wrapper {
-        margin-top: 0; /* Headers are now in the flow */
-    }
-}
-
-
-/* Style for the mission card layout */
-section.active {
-    border-left: 5px solid var(--btn-color);
-    background-color: rgba(255, 199, 44, 0.1);
-}
-.content-wrapper {
-    margin-top: 140px; /* Adjusted to account for both headers */
-}
-.mission {
-    position: relative;
-    width: 70%;
-    margin: auto;
-    padding: 2em;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 15px;
-    color: whitesmoke;
-    backdrop-filter: blur(5px); /* Slight blur to match the background */
-}
-#mission {
-    margin-top: 20px;
-}
-
-/* Style for centering each card in the viewport */
-#mission, #history {
+/* Shared Styles for Projects, Events, Mission, and History Sections */
+.projects .project,
+.events .communityservice,
+.events .nontechnicalevents .event,
+.mission,
+.history-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
- 
-    padding: 5vh 0;
-    margin-top: 100px;
+    justify-content: center; /* Center content vertically */
+    min-height: 100vh; /* Occupy full viewport height */
+    padding: 2rem;
+    background-color: #ffffff; /* White background for contrast */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    border-radius: 15px; /* Rounded corners like eboard */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 800px; /* Max width for better readability */
+    margin: 2rem auto; /* Center the sections */
 }
 
-/* Blurred background image */
-.mission-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../components/images/mission-bg.HEIC') center/cover no-repeat;
-    filter: blur(5px);
-    z-index: -1;
-}
-
+/* Remove Background Images from Mission and History */
+.mission-bg,
 .history-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Dark overlay */
-    url('../components/images/hu-yard-img.jpg') center/cover no-repeat;
-    filter: blur(10px);
-    
-    z-index: -1;
+    display: none; /* Hide background divs */
 }
 
-/* Banner text style */
-.banner-text h1 {
-    font-size: 4em;
-    margin: 1em 0;
-    color: var( --second-bg-color);
-    
-}
-.banner-text h2 {
-    font-size: 2em;
-    color: #04AEEE;
-    margin: 0.5em 0;
+/* Alternate background colors for visual separation */
+.projects .project:nth-child(even),
+.events .communityservice:nth-child(even),
+.events .nontechnicalevents .event:nth-child(even),
+.mission:nth-child(even),
+.history-content:nth-child(even) {
+    background-color: #f5f5f5;
 }
 
-.banner-text p {
-    font-size: 1.1em;
-    margin: 0.5em 0;
+/* Section Titles */
+.project h2,
+.communityservice h2,
+.nontechnicalevents .event h2,
+.mission h1,
+.history-content h1 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
-/* Button styling */
-.btn {
+.project h3,
+.communityservice h3,
+.nontechnicalevents .event h3 {
+    font-size: 1.5rem;
+    color: #555555;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Details Text */
+.project .details,
+.communityservice .details,
+.nontechnicalevents .event .details {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.project .details p,
+.communityservice .details p,
+.nontechnicalevents .event .details p {
+    margin: 10px 0;
+    color: #777777;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Logos within Details */
+.project .details span,
+.communityservice .details span,
+.nontechnicalevents .event .details span {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.project .details span img,
+.communityservice .details span img,
+.nontechnicalevents .event .details span img {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+}
+
+/* Event Information */
+.event-info {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.event-info p {
+    font-size: 1rem;
+    color: #555555;
+}
+
+/* Start Date Section */
+.project .startdate,
+.communityservice .startdate,
+.nontechnicalevents .event .startdate {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
+}
+
+.project .startdate h4,
+.communityservice .startdate h4,
+.nontechnicalevents .event .startdate h4 {
+    font-size: 1.2rem;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+.project .startdate p,
+.communityservice .startdate p,
+.nontechnicalevents .event .startdate p {
+    font-size: 1rem;
+    color: #555555;
+}
+
+/* Sign Up Button */
+.signup {
     display: inline-block;
-    padding: 0.8em 1.5em;
-    margin-top: 1em;
-    color:whitesmoke;
-    background-color: var(--btn-color);
+    padding: 12px 25px;
+    background-color: #1e90ff; /* Button background color */
+    color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.signup:hover {
+    background-color: #0d75d8; /* Darker shade on hover */
+    transform: scale(1.05);
 }
 
+/* Eboard Section Styles (Unchanged) */
 section.eboard {
     padding: 2rem 0;
     background-color: #f5f5f5;
 }
+
 /* Container for all eboard members */
 .card {
     display: flex;
@@ -299,11 +322,13 @@ section.eboard {
     padding: 20px;
     background-color: #f5f5f5; /* Light background for contrast */
 }
+
 .eboard {
     margin-top: auto; /* Pushes eboard section to the bottom */
     padding: 2rem 0;
     min-height: 100vh; /* Ensure it takes at least the full viewport height */
 }
+
 .eboard h2{
     text-align: center;
     margin-bottom: 20px;
@@ -426,13 +451,12 @@ section.eboard {
     display: none; /* Initially hidden */
     font-size: 1rem;
     padding: 0.5rem 0;
-    color: var(--text-secondary);
+    color: #333333;
 }
 
 .faq-question.active + .faq-answer {
     display: block; /* Show answer when question is active */
 }
-
 
 /* Responsive Design */
 
@@ -448,22 +472,42 @@ section.eboard {
     }
 }
 
-
 /* Large Mobile Devices (768px and below) */
 @media (max-width: 768px) {
-    header {
-        padding: 1rem;
+    /* Header Container remains fixed */
+    .header-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
     }
 
+    /* Primary Header */
+    .header {
+        padding: 1rem;
+        height: 60px;
+    }
+
+    /* Second Header */
+    .second-header {
+        padding: 0.5rem 1rem;
+        top: 60px; /* Below primary header */
+        height: 60px;
+    }
+
+    /* Navbar */
     .navbar {
-        display: none; /* Hide navbar initially */
+        display: none; /* Hide navbar by default on mobile */
         flex-direction: column;
-        position: absolute;
-        top: 60px; /* Adjust based on header height */
-        right: 0;
         background: var(--second-bg-color);
         width: 100%;
         text-align: center;
+        position: fixed;
+        top: 120px; /* Below both headers */
+        left: 0;
+        height: calc(100% - 120px);
+        overflow-y: auto;
     }
 
     .navbar a {
@@ -477,29 +521,58 @@ section.eboard {
 
     /* Hamburger Menu */
     .hamburger {
-        display: block;
-        cursor: pointer;
+        display: block; /* Show hamburger menu */
     }
 
-    .hamburger div {
-        width: 25px;
-        height: 3px;
-        background-color: var(--text-color);
-        margin: 5px;
-        transition: all 0.3s ease;
+    /* Content Wrapper */
+    .content-wrapper {
+        margin-top: 120px; /* Adjust if necessary */
     }
 
-    /* Adjust second-header positioning */
-    .second-header {
-        top: 120px; /* Adjust based on both headers’ heights */
+    /* Shared Section Adjustments */
+    .projects .project,
+    .events .communityservice,
+    .events .nontechnicalevents .event,
+    .mission,
+    .history-content {
+        padding: 1.5rem;
+        width: 90%;
     }
 
-    /* Adjust mission section margin for smaller screens */
-    .mission {
-        margin: 8rem auto;
+    .project h2,
+    .communityservice h2,
+    .nontechnicalevents .event h2,
+    .mission h1,
+    .history-content h1 {
+        font-size: 2rem;
+    }
+
+    .project h3,
+    .communityservice h3,
+    .nontechnicalevents .event h3 {
+        font-size: 1.3rem;
+    }
+
+    .project .details p,
+    .communityservice .details p,
+    .nontechnicalevents .event .details p,
+    .project .startdate p,
+    .communityservice .startdate p,
+    .nontechnicalevents .event .startdate p {
+        font-size: 1rem;
+    }
+
+    .signup {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Adjust logo sizes in Community Service section */
+    .communityservice .details span img,
+    .nontechnicalevents .event .details span img {
+        width: 80px; /* Smaller size for mobile */
     }
 }
-
 
 /* Small Mobile Devices (600px and below) */
 @media (max-width: 600px) {
@@ -514,6 +587,14 @@ section.eboard {
 
     .logo {
         font-size: 1.3rem;
+    }
+
+    .second-header__text h1 {
+        font-size: 1.3rem;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
     }
 }
 
@@ -530,8 +611,11 @@ section.eboard {
     .banner-text p {
         font-size: 0.8rem;
     }
-}
 
+    .second-header {
+        padding: 0.5rem;
+    }
+}
 
 /* Hamburger Animation (Transforms into 'X' when active) */
 .hamburger.toggle div:nth-child(1) {
@@ -544,4 +628,50 @@ section.eboard {
 
 .hamburger.toggle div:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Style for the mission and history card layout */
+.mission,
+.history-content {
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark text */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+/* Banner text style */
+.banner-text h1 {
+    font-size: 2rem;
+    margin: 1em 0;
+    color: var(--second-bg-color);
+}
+
+.banner-text h2 {
+    font-size: 1.5rem;
+    color: #04AEEE;
+    margin: 0.5em 0;
+}
+
+.banner-text p {
+    font-size: 1.1rem;
+    margin: 0.5em 0;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    margin-top: 1em;
+    color: var(--text-color);
+    background-color: var(--btn-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
